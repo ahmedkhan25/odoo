@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
     <t t-name="hello_gpt.ClientAction" owl="1">
-        <div class="o_hello_gpt_main">
-            <h1>Hello GPT!</h1>
-            <p>Enter your query below:</p>
-            <input type="text" t-model="state.query" />
-            <button t-on-click="onSubmitQuery">Submit</button>
-            <div t-if="state.response">
-                <h3>Response:</h3>
-                <p t-esc="state.response"/>
+        <div class="hello_gpt_container p-8 bg-gray-100 rounded-md">
+            <h1 class="text-3xl font-bold mb-6">Hello GPT Streaming</h1>
+            <div t-ref="resultText" class="result-container mt-4 h-48 overflow-y-auto bg-white p-4 rounded-md">
+                <p class="text-gray-500 text-sm mb-2">Generated Text</p>
+                <p class="whitespace-pre-line" t-esc="state.response"/>
+            </div>
+            <input
+                type="text"
+                t-model="state.query"
+                class="w-full px-4 py-2 rounded-md bg-gray-200 placeholder-gray-500 focus:outline-none mt-4"
+                placeholder="Enter prompt..."
+            />
+            <div class="flex justify-center mt-4">
+                <button
+                    t-on-click="onSubmitQuery"
+                    t-att-disabled="state.isGenerating"
+                    class="w-1/2 px-4 py-2 rounded-md bg-black text-white hover:bg-gray-900 focus:outline-none mr-2 disabled:opacity-75 disabled:cursor-not-allowed"
+                >
+                    Generate
+                </button>
+                <button
+                    t-on-click="onStopGeneration"
+                    t-att-disabled="!state.isGenerating"
+                    class="w-1/2 px-4 py-2 rounded-md border border-gray-500 text-gray-500 hover:text-gray-700 hover:border-gray-700 focus:outline-none ml-2 disabled:opacity-75 disabled:cursor-not-allowed"
+                >
+                    Stop
+                </button>
             </div>
         </div>
     </t>

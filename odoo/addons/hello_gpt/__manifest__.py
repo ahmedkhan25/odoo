@@ -15,13 +15,17 @@
     ],
     'assets': {
         'web.assets_backend': [
+            'hello_gpt/static/src/js/hello_gpt_common.js',
             'hello_gpt/static/src/js/hello_gpt.js',
             'hello_gpt/static/src/xml/hello_gpt_template.xml',
         ],
+        'web.assets_backend_prod_only': [
+            '!hello_gpt/static/src/js/hello_gpt_debug.js',
+        ],
     },
-    'demo': [],
     'installable': True,
-    'auto_install': False,
     'application': True,
-    'external_dependencies': {'python': ['openai']},
+    'auto_install': False,
 }
+
+
