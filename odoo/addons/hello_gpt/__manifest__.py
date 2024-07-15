@@ -11,13 +11,13 @@
     'data': [
         'views/res_config_settings_views.xml',
         'views/menu.xml',
-        'security/ir.model.access.csv',
     ],
     'assets': {
         'web.assets_backend': [
             'hello_gpt/static/src/js/hello_gpt_common.js',
             'hello_gpt/static/src/js/hello_gpt.js',
             'hello_gpt/static/src/xml/hello_gpt_template.xml',
+            'hello_gpt/static/src/img/gpt.jpeg',
         ],
         'web.assets_backend_prod_only': [
             '!hello_gpt/static/src/js/hello_gpt_debug.js',

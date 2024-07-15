@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-    <t t-name="hello_gpt.ClientAction" owl="1">
-        <div class="hello_gpt_container p-8 bg-gray-100 rounded-md">
-            <h1 class="text-3xl font-bold mb-6">Hello GPT Streaming</h1>
-            <div t-ref="resultText" class="result-container mt-4 h-48 overflow-y-auto bg-white p-4 rounded-md">
-                <p class="text-gray-500 text-sm mb-2">Generated Text</p>
-                <p class="whitespace-pre-line" t-esc="state.response"/>
-            </div>
-            <input
-                type="text"
-                t-model="state.query"
-                class="w-full px-4 py-2 rounded-md bg-gray-200 placeholder-gray-500 focus:outline-none mt-4"
-                placeholder="Enter prompt..."
-            />
-            <div class="flex justify-center mt-4">
-                <button
-                    t-on-click="onSubmitQuery"
-                    t-att-disabled="state.isGenerating"
-                    class="w-1/2 px-4 py-2 rounded-md bg-black text-white hover:bg-gray-900 focus:outline-none mr-2 disabled:opacity-75 disabled:cursor-not-allowed"
-                >
-                    Generate
-                </button>
-                <button
-                    t-on-click="onStopGeneration"
-                    t-att-disabled="!state.isGenerating"
-                    class="w-1/2 px-4 py-2 rounded-md border border-gray-500 text-gray-500 hover:text-gray-700 hover:border-gray-700 focus:outline-none ml-2 disabled:opacity-75 disabled:cursor-not-allowed"
-                >
-                    Stop
-                </button>
+    <t t-name="hello_gpt.ClientAction">
+        <div class="hello_gpt_container p-4">
+            <div class="card rounded-lg shadow-lg">
+                <div class="card-header bg-primary text-white rounded-t-lg p-4 flex items-center">
+                    <img src="/hello_gpt/static/src/img/gpt.jpeg" alt="GPT Icon" style="width: 100px; height: 100px; object-fit: contain; margin-right: 10px;"/>
+                    <h1 class="text-xl font-bold m-0" style="color: white;">Hello GPT, A Simple Odoo Module Demo</h1>
+                </div>
+                <div class="card-body p-4">
+                    <div t-ref="resultText" class="result-container mb-4 p-3 bg-gray-100 rounded-lg min-h-[100px]">
+                        <p class="text-gray-600 font-semibold mb-2">Demo of AI Generated Text</p>
+                        <p class="whitespace-pre-line" t-esc="state.response"/>
+                    </div>
+                    <input
+                        t-model="state.query"
+                        class="w-full p-2 border rounded-lg mb-4"
+                        placeholder="Enter your prompt here..."
+                    />
+                    <div class="flex justify-between">
+                        <button
+                            t-on-click="onSubmitQuery"
+                            class="px-4 py-2 bg-blue-500 text-blue rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                        >
+                            Generate
+                        </button>
+                        <button
+                            t-on-click="onStopGeneration"
+                            class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50"
+                        >
+                            Stop
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </t>
 </templates>
+
+    <!-- Action to open the Hello GPT template 
+    <record id="action_hello_gpt" model="ir.actions.client">
+        <field name="name">Hello GPT</field>
+        <field name="tag">hello_gpt_client_action</field>
+    </record>
+   
+</odoo>
+ -->
