@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="hello_gpt.ClientAction" owl="1">
+        <div class="o_hello_gpt_main">
+            <h1>Hello GPT!</h1>
+            <p>Enter your query below:</p>
+            <input type="text" t-model="state.query" />
+            <button t-on-click="onSubmitQuery">Submit</button>
+            <div t-if="state.response">
+                <h3>Response:</h3>
+                <p t-esc="state.response"/>
+            </div>
+        </div>
+    </t>
+</templates>

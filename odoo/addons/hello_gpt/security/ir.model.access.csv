@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hello_gpt_query,hello_gpt.query,model_hello_gpt_query,base.group_user,1,1,1,1

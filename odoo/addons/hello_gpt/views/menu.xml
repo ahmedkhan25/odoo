@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Action to open the Hello GPT client action -->
+        <record id="action_hello_gpt" model="ir.actions.client">
+            <field name="name">Hello GPT</field>
+            <field name="tag">hello_gpt_client_action</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Hello GPT"
+            id="menu_hello_gpt"
+            action="action_hello_gpt"
+            web_icon="hello_gpt,static/description/icon.png"
+            sequence="10"/>
+    </data>
+</odoo>
